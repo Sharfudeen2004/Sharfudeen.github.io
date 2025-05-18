@@ -274,8 +274,8 @@
       function checkVisibility() {
         const triggerBottom = window.innerHeight * 0.85;
         sections.forEach((section) => {
-          const sectionTop = section.getBoundingClientRect().top;
-          if (sectionTop < triggerBottom) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < triggerBottom) {
             section.classList.add("visible");
           }
         });
@@ -299,7 +299,7 @@
     </div>
 
     <a
-      href="https://drive.google.com/file/d/1Za9qP5NfE3mcpr7sS4OlXGnTda47Okd7/view?usp=sharing"
+      href="https://drive.google.com/file/d/1TWDBtBXMMu6w0vlHbcU4sjDYJ_DOGNwf/view?usp=sharing"
       target="_blank"
       class="download-btn"
       >Download Resume</a
@@ -308,150 +308,86 @@
 
     <div class="social-icons" aria-label="Social Media Links">
       <a
-        href="https://www.facebook.com/sharfu.deen.7311"
+        href="https://www.linkedin.com/in/mohamed-sharfudeen-p-1b80a9271/"
         target="_blank"
-        aria-label="Facebook"
-        ><i class="fab fa-facebook"></i
+        title="LinkedIn"
+        ><i class="fab fa-linkedin"></i
       ></a>
       <a
-        href="https://github.com/Sharfudeen2004"
+        href="https://github.com/MohamedSharfudeen"
         target="_blank"
-        aria-label="GitHub"
+        title="GitHub"
         ><i class="fab fa-github"></i
       ></a>
       <a
-        href="https://www.instagram.com/_syntax_error_001/"
+        href="mailto:mohamedsharfudeen5@gmail.com"
         target="_blank"
-        aria-label="Instagram"
-        ><i class="fab fa-instagram"></i
-      ></a>
-      <a
-        href="https://wa.me/916384020042"
-        target="_blank"
-        aria-label="WhatsApp"
-        ><i class="fab fa-whatsapp"></i
+        title="Email"
+        ><i class="fas fa-envelope"></i
       ></a>
     </div>
   </header>
 
-  <div id="contact-info">
-    <p><strong>Email:</strong> mohamedsharfu2005@gmail.com</p>
-    <p><strong>Phone:</strong> +91 6384020042</p>
-    <p><strong>Address:</strong> Coimbatore, Tamil Nadu, India</p>
-  </div>
+  <section id="contact-info" aria-live="polite">
+    <p><strong>Phone:</strong> +91 93602 30703</p>
+    <p><strong>Email:</strong> mohamedsharfudeen5@gmail.com</p>
+    <p><strong>Location:</strong> Kerala, India</p>
+  </section>
 
   <nav>
-    <a href="#education">Education</a>
+    <a href="#about">About Me</a>
     <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#internship">Internship</a>
+    <a href="#internships">Internships</a>
   </nav>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-      <div
-        style="
-          flex: 1;
-          background: #e3f2fd;
-          padding: 20px;
-          border-radius: 15px;
-          box-shadow: 0 0 15px #64b5f666;
-          color: #0d47a1;
-          min-width: 240px;
-        "
-      >
-        <h3>Bachelor of AI/ML</h3>
-        <p><strong>2022 - 2025</strong></p>
-        <p>Bharathiyar University - Nehru Arts and Science College, Coimbatore</p>
-      </div>
-      <div
-        style="
-          flex: 1;
-          background: #bbdefb;
-          padding: 20px;
-          border-radius: 15px;
-          box-shadow: 0 0 15px #64b5f666;
-          color: #0d47a1;
-          min-width: 240px;
-        "
-      >
-        <h3>HSC</h3>
-        <p><strong>2021 - 2022</strong></p>
-        <p>State Board Of Tamil Nadu - Andrews Matriculation Higher Secondary School</p>
-      </div>
-      <div
-        style="
-          flex: 1;
-          background: #90caf9;
-          padding: 20px;
-          border-radius: 15px;
-          box-shadow: 0 0 15px #64b5f666;
-          color: #0d47a1;
-          min-width: 240px;
-        "
-      >
-        <h3>SSLC</h3>
-        <p><strong>2019 - 2020</strong></p>
-        <p>State Board Of Tamil Nadu - Andrews Matriculation Higher Secondary School</p>
-      </div>
-    </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Passionate AI/ML enthusiast and software developer with a background in
+      computer science and hands-on experience in developing web applications,
+      implementing machine learning models, and working with data analysis.
+      Enthusiastic about learning new technologies and contributing to open-source
+      projects.
+    </p>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-box python">
-        <i class="fab fa-python"></i> Python
-      </div>
-      <div class="skill-box java">
-        <i class="fab fa-java"></i> Java
-      </div>
-      <div class="skill-box html">
-        <i class="fab fa-html5"></i> HTML5
-      </div>
-      <div class="skill-box rprog">
-        <i class="fas fa-chart-line"></i> R Programming
-      </div>
-      <div class="skill-box uipath">
-        <i class="fas fa-robot"></i> UiPath
-      </div>
-      <div class="skill-box msoffice">
-        <i class="fas fa-file-excel"></i> MS Office
-      </div>
+    <div class="skills-grid" aria-label="Technical Skills">
+      <div class="skill-box" tabindex="0">Python</div>
+      <div class="skill-box" tabindex="0">JavaScript</div>
+      <div class="skill-box" tabindex="0">TensorFlow</div>
+      <div class="skill-box" tabindex="0">Machine Learning</div>
+      <div class="skill-box" tabindex="0">React</div>
+      <div class="skill-box" tabindex="0">Node.js</div>
+      <div class="skill-box" tabindex="0">HTML/CSS</div>
+      <div class="skill-box" tabindex="0">Git & GitHub</div>
     </div>
   </section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Infosys BPM CSR Initiative: Soft Skills Training</li>
-      <li>
-        Infosys Springboard: Introduction to Machine Learning, Introduction to OpenAI GPT Model,
-        Time Management
-      </li>
-      <li>Great Learning Academy: Introduction to R programming, Robotics and AI</li>
-      <li>Professors Academy and IT Service: Robotic Process Automation (RPA)</li>
-    </ul>
-  </section>
-
-  <section id="internship">
-    <h2>Internship</h2>
-    <h3>Intern - Artificial Intelligence and Machine learning & RPA</h3>
-    <p><strong>Company:</strong> Sprout Knowledge Solutions, Coimbatore</p>
-    <p><strong>Duration:</strong> May 2024 - June 2024</p>
+  <section id="internships">
+    <h2>Internships</h2>
     <div class="internship-desc">
-      <p>
-        Worked on AI development projects and Robotic Process Automation. Gained hands-on experience with
-        tools like UiPath, OpenCV, and automation scripts.
-      </p>
+      <h3>Software Developer Intern at XYZ Company</h3>
+      <p><em>Jan 2023 - Jun 2023</em></p>
       <ul>
-        <li>Developed RPA scripts for automating Excel and file operations</li>
-        <li>Participated in a mini-project integrating AI for decision automation</li>
+        <li>Developed features for the company website using React and Node.js.</li>
+        <li>Collaborated with the design team to improve UI/UX.</li>
+        <li>Implemented RESTful APIs and database models.</li>
+      </ul>
+
+      <h3>Machine Learning Intern at ABC Labs</h3>
+      <p><em>Jul 2023 - Dec 2023</em></p>
+      <ul>
+        <li>Built ML models for image classification using TensorFlow and Keras.</li>
+        <li>Performed data preprocessing and augmentation.</li>
+        <li>Evaluated model performance and optimized hyperparameters.</li>
       </ul>
     </div>
   </section>
 
-  <footer>&copy; 2025 Mohamed Sharfudeen P</footer>
+  <footer>
+    &copy; 2025 Mohamed Sharfudeen P. All rights reserved.
+  </footer>
 </body>
 </html>
