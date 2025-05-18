@@ -4,259 +4,454 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohamed Sharfudeen P - Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
   <style>
-    /* Base & dark theme colors */
-    :root {
-      --bg-color: #f4f4f4;
-      --text-color: #1d3557;
-      --header-bg: #1d3557;
-      --nav-bg: #a8dadc;
-      --section-bg: white;
-      --btn-bg: #457b9d;
-      --btn-hover-bg: #1d3557;
-      --contact-bg: #f1faee;
-      --footer-bg: #1d3557;
-    }
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #e0e0e0;
-      --header-bg: #222;
-      --nav-bg: #2a4d58;
-      --section-bg: #1e1e1e;
-      --btn-bg: #28527a;
-      --btn-hover-bg: #17394d;
-      --contact-bg: #2a3a3a;
-      --footer-bg: #222;
-    }
-
+    /* === Light theme with white background & black text === */
     body {
-      font-family: Arial, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      transition: background-color 0.4s, color 0.4s;
     }
     header {
-      background: var(--header-bg);
-      color: white;
-      padding: 20px 0;
-      text-align: center;
+      background-color: #e3f2fd; /* light blue */
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      border-bottom: 2px solid #2196f3; /* MS blue */
+      border-radius: 0 0 12px 12px;
       position: relative;
+      color: #0d47a1; /* dark blue text */
+    }
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      user-select: none;
+      cursor: grab;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+      border: 2px solid #2196f3;
+      background-color: white;
+    }
+    .profile-pic:active {
+      cursor: grabbing;
+      transform: translateY(-50%) scale(1.1);
+    }
+    header h1 {
+      margin-left: 120px;
+      font-weight: 700;
+      font-size: 2rem;
+      flex-grow: 1;
+      color: #0d47a1;
+    }
+    header p {
+      margin-left: 120px;
+      font-style: italic;
+      color: #1976d2;
+      margin-top: 3px;
+    }
+    .download-btn {
+      background-color: #2196f3;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      margin-left: 15px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+    .download-btn:hover {
+      background-color: #1565c0;
+      color: #e0e0e0;
+    }
+    .contact-btn {
+      background-color: #eeeeee;
+      color: #111111;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 10px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 5px #2196f3aa;
+    }
+    .contact-btn:hover {
+      background-color: #bbdefb;
+      color: #0d47a1;
+    }
+    #contact-info {
+      max-width: 900px;
+      margin: 10px auto;
+      background-color: #f5faff;
+      color: #111111;
+      padding: 0 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #2196f3aa;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease, padding 0.5s ease;
+    }
+    #contact-info.show {
+      max-height: 180px;
+      padding: 15px 20px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    nav {
+      max-width: 900px;
+      margin: 25px auto 15px auto;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      background-color: #e3f2fd;
+      padding: 12px 0;
+      border-radius: 12px;
+      border: 2px solid #2196f3;
+    }
+    nav a {
+      color: #0d47a1;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #64b5f6;
+      text-decoration: underline;
     }
     section {
-      padding: 20px;
-      max-width: 800px;
-      margin: 20px auto;
-      background: var(--section-bg);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 15px auto;
+      background-color: #f5faff;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 0 18px #2196f333;
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.3s;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      color: #111111;
     }
-    section:nth-of-type(2) { animation-delay: 0.5s; }
-    section:nth-of-type(3) { animation-delay: 0.7s; }
-    section:nth-of-type(4) { animation-delay: 0.9s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-
     h2 {
-      color: var(--text-color);
+      color: #2196f3;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #2196f3;
+      padding-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      color: #1565c0;
+      font-weight: 600;
     }
     ul {
+      padding-left: 20px;
       line-height: 1.6;
     }
-    .contact {
-      background: var(--contact-bg);
-      padding: 10px;
-      border-radius: 5px;
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .skill-box {
+      flex: 1 1 120px;
+      max-width: 130px;
+      background-color: #bbdefb;
+      border-radius: 12px;
+      padding: 15px 0;
+      text-align: center;
+      font-weight: 600;
+      color: #0d47a1;
+      box-shadow: 0 0 8px #64b5f688;
+      cursor: default;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+    .skill-box:hover {
+      transform: translateY(-6px);
+    }
+    .internship-desc ul {
+      margin-top: 10px;
     }
     footer {
       text-align: center;
-      padding: 10px;
-      background: var(--footer-bg);
-      color: white;
-      margin-top: 10px;
-    }
-    .profile-pic {
-      width: 150px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .profile-pic:hover {
-      transform: scale(1.1);
-    }
-    .download-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: var(--btn-bg);
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .download-btn:hover {
-      background-color: var(--btn-hover-bg);
-    }
-    nav {
-      background-color: var(--nav-bg);
-      padding: 10px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      text-decoration: underline;
-      color: var(--btn-hover-bg);
-    }
-
-    /* Social icons container */
-    .social-icons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 15px;
-    }
-    .social-icons a {
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #a8dadc;
-    }
-
-    /* Dark mode toggle button */
-    .toggle-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: transparent;
-      border: 2px solid white;
-      border-radius: 20px;
-      color: white;
-      font-weight: bold;
-      padding: 5px 15px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
+      padding: 15px 0;
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      max-width: 900px;
+      margin: 25px auto 0 auto;
+      border-radius: 12px 12px 0 0;
+      font-weight: 600;
       user-select: none;
     }
-    .toggle-btn:hover {
-      background-color: white;
-      color: var(--header-bg);
+    .social-icons {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .social-icons a {
+      color: #2196f3;
+      font-size: 28px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #64b5f6;
+    }
+  </style>
+  <script>
+    function toggleContactInfo() {
+      const contactSection = document.getElementById("contact-info");
+      contactSection.classList.toggle("show");
     }
 
-  </style>
-  <!-- FontAwesome CDN for icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    window.onload = function () {
+      const profilePic = document.querySelector(".profile-pic");
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      profilePic.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        offsetX = e.clientX - profilePic.getBoundingClientRect().left;
+        offsetY = e.clientY - profilePic.getBoundingClientRect().top;
+        profilePic.style.transition = "none";
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+        profilePic.style.transition = "transform 0.3s ease";
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          const header = document.querySelector("header");
+          const headerRect = header.getBoundingClientRect();
+          let left = e.clientX - offsetX - headerRect.left;
+          let top = e.clientY - offsetY - headerRect.top;
+
+          left = Math.max(0, Math.min(left, header.offsetWidth - profilePic.offsetWidth));
+          top = Math.max(0, Math.min(top, header.offsetHeight - profilePic.offsetHeight));
+
+          profilePic.style.left = left + "px";
+          profilePic.style.top = top + "px";
+          profilePic.style.transform = "translateY(0)";
+        }
+      });
+
+      // Scroll animation for sections
+      const sections = document.querySelectorAll("section");
+      function checkVisibility() {
+        const triggerBottom = window.innerHeight * 0.85;
+        sections.forEach((section) => {
+          const sectionTop = section.getBoundingClientRect().top;
+          if (sectionTop < triggerBottom) {
+            section.classList.add("visible");
+          }
+        });
+      }
+      window.addEventListener("scroll", checkVisibility);
+      checkVisibility();
+    };
+  </script>
 </head>
 <body>
   <header>
-    <button class="toggle-btn" id="theme-toggle">Dark Mode</button>
-    <img class="profile-pic" src="https://i.postimg.cc/cg0K182Q/profile.jpg" alt="Mohamed Sharfudeen P Profile Photo" />
-    <h1>Mohamed Sharfudeen P</h1>
-    <p>Aspiring AI/ML Engineer</p>
-    <a href="resume.pdf" class="download-btn" download>Download Resume</a>
+    <img
+      class="profile-pic"
+      src="https://i.postimg.cc/cg0K182Q/profile.jpg"
+      alt="Mohamed Sharfudeen P Profile Photo"
+      draggable="false"
+    />
+    <div>
+      <h1>Mohamed Sharfudeen P</h1>
+      <p>AI/ML Enthusiast | Software Developer</p>
+    </div>
 
-    <div class="social-icons">
-      <a href="https://github.com/mohamedsharfudeen" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/mohamedsharfudeen" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://twitter.com/mohamedsharf" target="_blank" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
+    <a
+      href="https://drive.google.com/file/d/1Za9qP5NfE3mcpr7sS4OlXGnTda47Okd7/view?usp=sharing"
+      target="_blank"
+      class="download-btn"
+      >Download Resume</a
+    >
+    <button class="contact-btn" onclick="toggleContactInfo()">Contact Info</button>
+
+    <div class="social-icons" aria-label="Social Media Links">
+      <a
+        href="https://www.facebook.com/sharfu.deen.7311"
+        target="_blank"
+        aria-label="Facebook"
+        ><i class="fab fa-facebook"></i
+      ></a>
+      <a
+        href="https://github.com/Sharfudeen2004"
+        target="_blank"
+        aria-label="GitHub"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/_syntax_error_001/"
+        target="_blank"
+        aria-label="Instagram"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://wa.me/916384020042"
+        target="_blank"
+        aria-label="WhatsApp"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
     </div>
   </header>
 
-  <nav>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div id="contact-info">
+    <p><strong>Email:</strong> mohamedsharfu2005@gmail.com</p>
+    <p><strong>Phone:</strong> +91 6384020042</p>
+    <p><strong>Address:</strong> Coimbatore, Tamil Nadu, India</p>
+  </div>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>Java</li>
-      <li>HTML & CSS</li>
-      <li>R Programming</li>
-      <li>UiPath</li>
-      <li>Microsoft Office</li>
-    </ul>
-  </section>
+  <nav>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#internship">Internship</a>
+  </nav>
 
   <section id="education">
     <h2>Education</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div
+        style="
+          flex: 1;
+          background: #e3f2fd;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0 0 15px #64b5f666;
+          color: #0d47a1;
+          min-width: 240px;
+        "
+      >
+        <h3>Bachelor of AI/ML</h3>
+        <p><strong>2022 - 2025</strong></p>
+        <p>Bharathiyar University - Nehru Arts and Science College, Coimbatore</p>
+      </div>
+      <div
+        style="
+          flex: 1;
+          background: #bbdefb;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0 0 15px #64b5f666;
+          color: #0d47a1;
+          min-width: 240px;
+        "
+      >
+        <h3>HSC</h3>
+        <p><strong>2021 - 2022</strong></p>
+        <p>State Board Of Tamil Nadu - Andrews Matriculation Higher Secondary School</p>
+      </div>
+      <div
+        style="
+          flex: 1;
+          background: #90caf9;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0 0 15px #64b5f666;
+          color: #0d47a1;
+          min-width: 240px;
+        "
+      >
+        <h3>SSLC</h3>
+        <p><strong>2019 - 2020</strong></p>
+        <p>State Board Of Tamil Nadu - Andrews Matriculation Higher Secondary School</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-box python">
+        <i class="fab fa-python"></i> Python
+      </div>
+      <div class="skill-box java">
+        <i class="fab fa-java"></i> Java
+      </div>
+      <div class="skill-box html">
+        <i class="fab fa-html5"></i> HTML5
+      </div>
+      <div class="skill-box rprog">
+        <i class="fas fa-chart-line"></i> R Programming
+      </div>
+      <div class="skill-box uipath">
+        <i class="fas fa-robot"></i> UiPath
+      </div>
+      <div class="skill-box msoffice">
+        <i class="fas fa-file-excel"></i> MS Office
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
     <ul>
-      <li><strong>Bachelor of AI/ML</strong> - Bharathiyar University, Nehru Arts and Science College, Coimbatore</li>
-      <li><strong>HSC</strong> - State Board Of Tamil Nadu, Andrews Matriculation Higher Secondary School</li>
-      <li><strong>SSLC</strong> - State Board Of Tamil Nadu, Andrews Matriculation Higher Secondary School</li>
+      <li>Infosys BPM CSR Initiative: Soft Skills Training</li>
+      <li>
+        Infosys Springboard: Introduction to Machine Learning, Introduction to OpenAI GPT Model,
+        Time Management
+      </li>
+      <li>Great Learning Academy: Introduction to R programming, Robotics and AI</li>
+      <li>Professors Academy and IT Service: Robotic Process Automation (RPA)</li>
     </ul>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Civicard Construction Management Application</strong></li>
-      <li><strong>Pharmacy Management System</strong></li>
-    </ul>
+  <section id="internship">
+    <h2>Internship</h2>
+    <h3>Intern - Artificial Intelligence and Machine learning & RPA</h3>
+    <p><strong>Company:</strong> Sprout Knowledge Solutions, Coimbatore</p>
+    <p><strong>Duration:</strong> May 2024 - June 2024</p>
+    <div class="internship-desc">
+      <p>
+        Worked on AI development projects and Robotic Process Automation. Gained hands-on experience with
+        tools like UiPath, OpenCV, and automation scripts.
+      </p>
+      <ul>
+        <li>Developed RPA scripts for automating Excel and file operations</li>
+        <li>Participated in a mini-project integrating AI for decision automation</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Information</h2>
-    <p><strong>Email:</strong> mohamedsharfu2005@gmail.com</p>
-    <p><strong>Phone:</strong> +91 6384020042</p>
-    <p><strong>Address:</strong> Tirunelveli, Tamil Nadu, India</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Mohamed Sharfudeen P</p>
-  </footer>
-
-  <script>
-    // Dark/Light Mode Toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    function updateToggleText() {
-      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      updateToggleText();
-    });
-
-    updateToggleText();
-
-    // Fade-in animations are handled by CSS keyframes on page load
-  </script>
+  <footer>&copy; 2025 Mohamed Sharfudeen P</footer>
 </body>
 </html>
